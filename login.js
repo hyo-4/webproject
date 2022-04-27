@@ -9,7 +9,7 @@ function store(){
 	    	return;
 	    }
 
-    localStorage.setItem(namevalue.value,pw.value);
+    localStorage.setItem(namevalue.value,pw.value);//회원정보를 로컬스토리지에 저장
 }
 
 
@@ -24,15 +24,15 @@ function check() {
      let userName = document.getElementById("userName");
      let userPassword = document.getElementById("userPw");
 	 let storePassword = localStorage.getItem(userName.value);
-	if(storePassword == null){
-			alert("없습니다.");
+	if(storePassword == null){//회원정보 없음
+			alert("ID 혹은 password가 잘못되었습니다.");
 	}
 
-    if(userPassword.value == storePassword) {
-       alert('sucsess')
-     
+    if(userPassword.value == storePassword) {//회원정보 일치
+       alert('sucsess')//로그인 성공
+ 		window.open("login.html", "", "");
     }
     else{
-        alert("error.");
+        alert("error.");//로그인 실패
     }
 };
