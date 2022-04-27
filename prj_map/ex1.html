@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>차은우 소개</title>
+<style>
+	body { background-color : linen; color : green;
+				margin-left : 40px; margin-right : 40px;}
+	h3 { text-align : center; color : darkred;}
+	hr { height : 5px; border : solid grey; 
+				background-color : grey }
+	span { color: blue; font-size: 20px; }
+</style>
+<script>
+	function show() { // <img>에 이미지 달기 -> 수정
+		document.getElementById("fig").src = "은우.jpg"
+	}
+	function hide() { // <img>에 이미지 제거
+		document.getElementById("fig").src= "";	
+	}
+</script>
+</head>
+<body>
+<h3 onmouseover="show()" onmouseout="hide()">차은우</h3>
+<hr>
+<div><img id="fig" src=""></div>
+<!-- 수정 -->
+대한미국의 보이그룹 아스트로의 서브보컬을 맡고 있다.
+2016년 2월 23일, <span>Spring Up</span> 앨범으로 데뷔하였다.
+그의 별명은 "<span>얼굴 천재</span>"이다.
+</body>
+</html>
