@@ -14,32 +14,46 @@
             <p class="survey-title-description"> 유기견 입양 자격심사 테스트</p>
         </header>
 
-        <fieldset class ="box" action="">
+        <fieldset class ="box">
         <p class="survey-question">입양을 원하는 이유는?</p>
         <div>
-            <input type="radio" id="cute" name="company" value="1" required>
+            <input type="radio" id="cute" name="apd" value="1" required>
             <label for="cute">귀여워서</label>
         </div>
         <div>
-            <input type="radio" id="lone" name="company" value="2">
+            <input type="radio" id="lone" name="apd" value="2">
             <label for="lone">외로워서</label>
         </div>
         <div>
-            <input type="radio" id="family" name="company" value="3">
+            <input type="radio" id="family" name="apd" value="3">
             <label for="family">가족이 되어주고 싶어서</label>
         </div>
         <div>
-            <input type="radio" id="proud" name="company" value="4">
+            <input type="radio" id="proud" name="apd" value="4">
             <label for="proud">자랑하고 싶어서</label>
         </div>
     </fieldset>
     
      <div class="bottom-buttons">
-        <input class="submit-button" type="submit">
+        <input class="submit-button" type="submit" onclick = 'getAnswer()'>
         <input class="reset-button" type="reset" value="지우기">
     </div>
     </form>
   <script>
+  function getAnswer() {
+	  let anw = document.getElementsByName('apd');
+	  let Choice;
+	  for(let i=0; i<anw.length; i++) {
+	      if(anw[i].checked) {
+	          Choice = anw[i].value;
+	      }
+	  }
+	  
+	  if(Choice == "3"){
+		  let popup = window.open('https://dmanimal.co.kr/', '도그마루', 'width=1500px,height=1000px,scrollbars=yes');
+	  win}
+	  else alert("당신은 자격이 없습니다");
+  }
   </script>
 </body>
 </html>
