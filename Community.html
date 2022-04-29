@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>커뮤니티 글쓰기</title>
+<script>
+function store() {
+	//localstorage 있는지 확인 -> 없으면 alert창 & return
+	if(!window.localStorage){
+		alert("");
+		return;
+	}
+
+//아이디 대신 현재 강아지의 사진을 업로드함
+//로컬스토리지의 key에 이미지를 저장하는 변수 lovedog
+//이미지를 url형태로 저장함
+//왜냐하면 로컬스토리지에는 문자열밖에 못 저장하기 때문
+	let chooseFile = document.getElementById("chooseFile").value;
+	
+	filePath = String(chooseFile);
+	//전체경로를 \ 나눔.
+	let filePathSplit = filePath.split('\\'); 
+	//전체경로를 \로 나눈 길이.
+	let filePathLength = filePathSplit.length;
+	//마지막 경로를 .으로 나눔.
+	let fileNameSplit = filePathSplit[filePathLength-1].split('.');
+	let fileName = fileNameSplit[0];
+	
+	let space = document.getElementById("space").value; 
+
+	// 로컬 스토리지에 저장(혹은 수정)
+	localStorage.setItem(fileName, space);
+
+	// 저장 후 <input>에 입력된 단어 지우기
+	fileName = null;
+	space = null;
+}
+
+function viewAll() {
+	window.open("Community-view.html", "viewwin");
+}
+
+</script>
+<style>
+textarea {
+	font-size : 1.1em;
+}
+</style>
+</head>
+<body>
+<h3>커뮤니티 글쓰기</h3>
+<hr>
+<form>
+	<label>사진 업로드 <input id="chooseFile" type="file" name="chooseFile"
+	  accept="image/*"></label><br><br>
+
+	<textarea id="space" cols="50" rows="10">
+반려동물의 이름 : <br>
+작성자 이름 : <br>
+내용 : <br>
+	</textarea><br>
+	<br>
+	<input type="button" value="전체 보기" onclick="viewAll()">
+	<input type="button" value="저장" onclick="store()">
+</form>
+</body>
+</html>
