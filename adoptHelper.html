@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>입양 도우미</title>
+ 	 <link rel="stylesheet" href="adoptHelper.css">
+<script>
+function submit(){
+	let inputDate = document.getElementById("date").value;
+	let splitDate = inputDate.split("-");
+	let yyyy = splitDate[0];
+	let mm = splitDate[1];
+	let dd = splitDate[2];
+	inputDate = yyyy + "" + mm + "" + dd;
+	
+	let inputTime = document.getElementById("time").value;
+	
+	let current = new Date();
+	let year = current.getFullYear();
+	let month = current.getMonth()+1;
+	if((month+"").length < 2){
+		month = "0" + month;
+	}
+	let date = current.getDate();
+	if((date+"").length < 2){
+		date = "0" + date;
+	}
+	
+	let yyyymmdd = year + "" + month + "" + date;
+	
+	let p = document.getElementById("prompt");
+	
+	if(parseInt(yyyymmdd) < parseInt(inputDate)){
+		p.innerHTML = "날짜 : " + inputDate + " / 시간 : " + inputTime +"에 면담 신청되셨습니다.";
+	}
+	
+	else{
+		p.innerHTML = "오늘 이전 날짜는 신청이 불가능합니다.";
+	}
+}
+
+function submits(){
+	let inputDate = document.getElementById("date").value;
+	let inputTime = document.getElementById("time").value;
+	let p = document.getElementById("prompt");
+	p.innerHTML = "날짜 : " + inputDate + " / 시간 : " + inputTime +"에 면담 신청되셨습니다.";
+}
+	
+</script>
+
+</head>
+<body>
+<header>
+<img src="images/logo.png" width="300px" height="300px">
+</header>
+<div class="wrap"> 
+<nav class="menu_bar"> 
+ <ul class="menu">
+ 
+ <li class="menu_list" id = 'menu'> <a href="" class="link">입양 안내</a></li>
+  <li class="menu_list"id = 'menu'> <a href="" class="link">커뮤니티</a> </li> 
+  <li class="menu_list"id = 'menu'> <a href="" class="link">지도</a> </li> 
+  <li class="menu_list"id = 'menu'> <a href="moreinfo.html" class="link">캠페인</a> </li> 
+  
+  </ul>
+  <img src="images/dog5.jpg" width="80px" height="80px">
+  </nav>
+</div>
+
+<section>
+
+<table>
+<tbody>
+<tr><td><h3>입양안내</h3>
+<p>여기 있는 아이들은 이미 한 번 버림받은 아픔을 가지고 있습니다.<br><br>
+내 마음에 드는 예쁜 동물을 선택하는 것이 아닙니다!<br>
+평생을 함께할 가족을 입양한다는 마음으로 아이들을 바라봐주세요.<br></p></td>
+
+<td class = "rec" colspan = "2" rowspan = "2"><h3>입양 희망 면담 신청</h3>
+가능한 날짜와 시간를 입력한 후 제출 버튼을 눌러주세요.
+<hr>
+<form>
+<pre>
+날짜 : 	<input type="date" id = "date" value="2022-05-03"><br> 
+시간 : 	<input type="time" id = "time" value="15:00"><input type="submit" value="신청" onclick = "submits()"><br> 
+<hr>
+</pre>
+</form>
+
+<p id="prompt"></p>
+</td></tr>
+
+<tr><td><h3>입양 절차</h3>
+<ul style="list-style-type: square">
+<li class = "todo_list">입양 신청 전 최소 3회 이상의 봉사활동에 참여해주세요.</li>
+<li class = "todo_list">아래 사진을 보고 입양을 희망하는 아이가 있다면 면담 신청을 해주세요.</li>
+<li class = "todo_list">면담을 통해 입양 가능 여부가 결정됩니다.</li>
+<li class = "todo_list">연락처: 02-710-0000</li>
+</ul></td></tr>
+</tbody>
+
+</table>
+
+<table>
+<tr><td><img src="adopt/cat5.jpg" style="width:200px; height:200px;"><p>내 이름은 나비에요.</p></td><td><img src="adopt/dog1.jpg" style="width:200px; height:200px;"></td><td><img src="adopt/dog2.jpg" style="width:200px; height:200px;"></td><td><img src="adopt/cat1.jpg" style="width:200px; height:200px;"></td><td><img src="adopt/dog7.jpg" style="width:200px; height:200px;"></td></tr>
+<tr><td><img src="adopt/dog3.jpg" style="width:200px; height:200px;"></td><td><img src="adopt/cat3.jpg" style="width:200px; height:200px;"></td><td><img src="adopt/cat2.jpg" style="width:200px; height:200px;"></td><td><img src="adopt/dog6.jpg" style="width:200px; height:200px;"></td><td><img src="adopt/cat7.jpg" style="width:200px; height:200px;"></td></tr>
+<tr><td><img src="adopt/cat4.jpg" style="width:200px; height:200px;"></td><td><img src="adopt/dog4.jpg" style="width:200px; height:200px;"></td><td><img src="adopt/dog5.jpg" style="width:200px; height:200px;"></td><td><img src="adopt/cat6.jpg" style="width:200px; height:200px;"></td><td><img src="adopt/dog8.jpg" style="width:200px; height:200px;"></td></tr>
+</table>
+
+</section>
+</body>
+</html>
